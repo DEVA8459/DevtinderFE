@@ -1,10 +1,11 @@
+import Navbar from "./componenet/Navbar"
 
 function App() {
   
 
   return (
    <>
-   hello world
+  <Navbar />
    </>
   )
 }
