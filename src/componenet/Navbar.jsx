@@ -31,10 +31,7 @@ const Navbar = () => {
         <a className="btn btn-ghost text-xl">DEVTINDER</a>
       </div>
       <div className="flex justify-center items-center gap-2">
-        <div className="">
-          {" "}
-          {user ? <p>Welcome {user.firstName} </p> : null}
-        </div>
+        <div className="">{user ? <p>Welcome {user.firstName} </p> : null}</div>
         {user ? (
           <div className=" dropdown dropdown-end mr-10">
             <div
@@ -43,8 +40,12 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div>
-                <div className="w-10 rounded-full">
-                  <img alt="userPhoto" src={user.photoUrl} />
+                <div className=" w-full h-full">
+                  <img
+                    alt="userPhoto"
+                    src={user.photoUrl}
+                    className=" "
+                  />
                 </div>
               </div>
             </div>
@@ -55,13 +56,30 @@ const Navbar = () => {
               <li>
                 <Link to="/profile" className="justify-between">
                   Profile
-                  <span className="badge">New</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="justify-between">
+                  feed
+                </Link>
+              </li>
+              <li>
+                <Link to="/user/connections" className="justify-between">
+                  Connections
+                </Link>
+              </li>
+              <li>
+                <Link to="/request" className="justify-between">
+                  your pending requests
+                </Link>
+              </li>
+              <li>
+                <Link to="/ignoreReject" className="justify-between">
+                  your Rejected and ignored
                 </Link>
               </li>
 
-              <li>
-                <a>Settings</a>
-              </li>
+              
               <li onClick={handleLogout}>
                 <a>Logout</a>
               </li>

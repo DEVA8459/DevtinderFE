@@ -5,10 +5,13 @@ import { addUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constant";
 
+
 const Login = () => {
   const navigate =useNavigate()
-  const [emailId, setEmailId] = useState("Salman@gmail.com");
-  const [password, setPassword] = useState("Salman@1234");
+  const [guestemail ,setguestemail] =useState("")
+  const [guestPass ,setguestpass] =useState("")
+  const [emailId, setEmailId] = useState(guestemail);
+  const [password, setPassword] = useState(guestPass);
   const [error ,setError]=useState("")
 
   const dispatch =useDispatch()
@@ -28,7 +31,10 @@ const Login = () => {
       console.error("E",error);
     }
   };
-
+  const handleguest =()=>{
+    setEmailId("katrinakaif@gmail.com")
+    setPassword("Katrina@1234")
+  }
   return (
     <div className="flex justify-center mt-20">
       <div className="card card-border bg-base-300 w-96">
@@ -59,6 +65,9 @@ const Login = () => {
           <div className="card-actions justify-center">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
+            </button>
+            <button className="btn btn-primary" onClick={handleguest}>
+              Guest Credentials
             </button>
           </div>
         </div>

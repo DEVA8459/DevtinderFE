@@ -23,8 +23,6 @@ const Body = () => {
         console.warn("No user data received.");
         return;
       }
-
-      console.log("Profile fetched:", response.data);
       dispatch(addUser(response.data));
     } catch (error) {
       if (error.response) {
