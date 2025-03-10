@@ -118,9 +118,9 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
   return (
     < form
       onSubmit={handleSubmit}
-      className="fieldset w-x bg-base-400 border border-base-300 p-4 rounded-box"
+      className="fieldset w-x  border border-base-300 p-4 rounded-box"
     >
-      <legend className="fieldset-legend">Edit Profile</legend>
+      <legend className="fieldset-legend font-bold text-xl text-primary">Edit Profile</legend>
 
       {["firstName", "lastName", "age", "contact", "city", "country"].map(
         (field, i) => (

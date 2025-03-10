@@ -45,7 +45,7 @@ const Body = () => {
   }, []); // Runs once on component mount
 
   return (
-    <div>
+    <div className="bg-gradient-to-l from-rose-500 to-pink-700/70">
       <Navbar />
       <Outlet />
     </div>

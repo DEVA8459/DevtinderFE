@@ -3,6 +3,7 @@ import { BASE_URL } from "../utils/constant";
 import axios from "axios";
 import { removeUser } from "../store/userSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -17,7 +18,6 @@ const Navbar = () => {
         {},
         { withCredentials: true }
       );
-      console.log(logout);
       dispatch(removeUser(logout.data));
       navigate("/login");
     } catch (error) {
@@ -26,67 +26,81 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 shadow-sm">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">DEVTINDER</a>
+    <div className="navbar flex justify-between bg-gradient-to-l gap-8 from-rose-500 to-pink-700/70 shadow-md shadow-black px-4 md:px-6 lg:px-10">
+      <div className="">
+        <Link to="/" className="flex items-center gap-5">
+          <img src="pngwing.com.png" className="w-10 " />
+          <p className=" text-xl font-bold ">
+            DEVTINDER
+          </p>
+        </Link>
       </div>
-      <div className="flex justify-center items-center gap-2">
-        <div className="">{user ? <p>Welcome {user.firstName} </p> : null}</div>
-        {user ? (
-          <div className=" dropdown dropdown-end mr-10">
+
+      <div className="flex items-center gap-2">
+        {user && (
+          <div className="flex items-center gap-2">
+            <Link to="/profile">
+              <p className="text-sm  md:text-xl font-bold ">
+                Welcome {user.firstName}
+              </p>
+            </Link>
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-accent">
+              <img
+                alt="userPhoto"
+                src={user.photoUrl}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        )}
+
+        {user && (
+          <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div>
-                <div className=" w-full h-full">
-                  <img
-                    alt="userPhoto"
-                    src={user.photoUrl}
-                    className=" "
-                  />
-                </div>
-              </div>
+              <IoIosArrowDropdownCircle size={30} />
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content  mt-3 w-48 p-2 bg-gradient-to-r from-rose-500/50 to-black/50 rounded-lg"
             >
               <li>
-                <Link to="/profile" className="justify-between">
-                  Profile
+                <Link to="/profile">
+                  <p className="text-lg font-bold ">Profile</p>
                 </Link>
               </li>
               <li>
-                <Link to="/" className="justify-between">
-                  feed
+                <Link to="/">
+                  <p className="text-lg font-bold ">Feed</p>
                 </Link>
               </li>
               <li>
-                <Link to="/user/connections" className="justify-between">
-                  Connections
+                <Link to="/user/connections">
+                  <p className="text-lg font-bold ">Connections</p>
                 </Link>
               </li>
               <li>
-                <Link to="/request" className="justify-between">
-                  your pending requests
+                <Link to="/request">
+                  <p className="text-lg font-bold ">
+                    Pending Requests
+                  </p>
                 </Link>
               </li>
               <li>
-                <Link to="/ignoreReject" className="justify-between">
-                  your Rejected and ignored
+                <Link to="/ignoreReject">
+                  <p className="text-lg font-bold ">
+                    Rejected & Ignored
+                  </p>
                 </Link>
               </li>
-
-              
               <li onClick={handleLogout}>
-                <a>Logout</a>
+                <p className="text-lg font-bold  bg-red-700">Logout</p>
               </li>
             </ul>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </div>

@@ -56,7 +56,7 @@ const Request = () => {
       {data.length > 0 ? (
         data.map((requestData) => (
           <div
-            className="items-center justify-center card bg-base-300 shadow-xl"
+            className="items-center justify-center card  border-2 border-primary shadow-2xl shadow-secondary   bg-linear-65 from-primary/70 to-secondary/70 rounded-lg  p-2 m-2"
             key={requestData?._id}
           >
             <UserCard data={requestData?.fromUserId} />

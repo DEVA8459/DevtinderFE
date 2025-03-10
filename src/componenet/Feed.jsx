@@ -85,12 +85,12 @@ const Feed = () => {
   };
 console.log(feedObj)
   return (
-    <div className="relative flex justify-center mt-5">
-      <AnimatePresence>
+    <div className="relative flex justify-center  bg-linear-to-b from-rose-500 to-pink-700 ">
+      <AnimatePresence >
         {feedObj.length > 0 ? (
           <motion.div
             key={feedObj[currentIndex]?._id}
-            className="absolute flex flex-col items-center justify-center bg-base-300 py-2 shadow-xl rounded-lg"
+            className=" border-2 border-rose-700 shadow-xl shadow-black absolute flex flex-col items-center justify-center bg-linear-65 from-rose-500 to-pink-700/70 rounded-lg  p-2 m-2 "
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={(event, info) =>
