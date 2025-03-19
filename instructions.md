@@ -11,3 +11,6 @@ Body
     route/login =>login
     route /connection =>connections 
     Router /profile => profile
+
+ssh-command
+    ssh -i "tinderDev-secret.pem" ubuntu@ec2-44-206-233-193.compute-1.amazonaws.com

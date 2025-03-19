@@ -7,6 +7,7 @@ import Connections from "./componenet/Connections";
 import Request from "./componenet/Request";
 import IngoreReject from "./componenet/IngoreReject";
 import Home from "./componenet/Home";
+import Chat from "./componenet/Chat";
 
 function App() {
   return (
@@ -19,10 +20,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/user/connections" element={<Connections/>} />
+            <Route path="/user/connections" element={<Connections />} />
+
             <Route path="/request" element={<Request />} />
             <Route path="/ignoreReject" element={<IngoreReject />} />
-            
           </Route>
         </Routes>
       </BrowserRouter>
