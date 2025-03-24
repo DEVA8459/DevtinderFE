@@ -52,7 +52,7 @@ const Request = () => {
   };
 
   return (
-    <div className="flex relative flex-wrap gap-4 items-center justify-center mt-4">
+    <div className="flex relative flex-wrap gap-4 items-center justify-center h-[80vh] mt-4 overflow-auto">
       {data.length > 0 ? (
         data.map((requestData) => (
           <div

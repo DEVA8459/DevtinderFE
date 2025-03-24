@@ -4,11 +4,9 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/userSlice";
 
-
-const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
+const EditProfile = ({ data, setShowEdit, setShowToast }) => {
   const dispatch = useDispatch();
 
- 
   const [FormDataa, setFormData] = useState({
     firstName: data.firstName || "",
     lastName: data.lastName || "",
@@ -23,8 +21,6 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
     education: data.education || [],
     about: data.about || "",
   });
-
-  
 
   const [skillInput, setSkillInput] = useState({
     skills: "",
@@ -52,7 +48,6 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
       [fields]: prev[fields].filter((_, i) => i !== index),
     }));
   };
-  
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -69,9 +64,9 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(res);
+    
       const imageUrl = res.data.data.url;
-      console.log("Uploaded Image URL:", imageUrl);
+     
 
       setFormData((prev) => ({
         ...prev,
@@ -82,7 +77,6 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
     }
   };
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -91,12 +85,11 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
     }));
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      console.log("Form Data:", FormDataa);
+     
 
       const res = await axios.patch(BASE_URL + "/profile/edit", FormDataa, {
         withCredentials: true,
@@ -104,23 +97,24 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
       dispatch(addUser(res?.data?.data));
       setShowEdit(false);
 
-    document.getElementById("my-drawer").checked = false
-    setShowToast(true)
-    setTimeout(()=>{
-      setShowToast(false)
-    } ,2000)
-      
+      document.getElementById("my-drawer").checked = false;
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 2000);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    < form
+    <form
       onSubmit={handleSubmit}
       className="fieldset w-x  border border-base-300 p-4 rounded-box"
     >
-      <legend className="fieldset-legend font-bold text-xl text-primary">Edit Profile</legend>
+      <legend className="fieldset-legend font-bold text-xl text-primary">
+        Edit Profile
+      </legend>
 
       {["firstName", "lastName", "age", "contact", "city", "country"].map(
         (field, i) => (
@@ -179,6 +173,7 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
             }
           />
           <button
+            type="button"
             onClick={() => addSkill(fields)}
             className="p-2 bg-gray-500 text-black m-2"
           >
@@ -186,7 +181,7 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
           </button>
         </div>
       ))}
-
+      <label className="fieldset-label py-2 ">About:</label>
       <textarea
         type="text"
         name="about"
@@ -196,7 +191,6 @@ const EditProfile = ({ data ,setShowEdit ,setShowToast }) => {
         onChange={handleChange}
       ></textarea>
 
-      
       <button className="btn btn-neutral mt-4" type="submit">
         Submit
       </button>

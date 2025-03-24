@@ -34,8 +34,8 @@ const Login = () => {
     }
   };
   const handleguest = () => {
-    setEmailId("katrinakaif@gmail.com");
-    setPassword("Katrina@1234");
+    setEmailId("GuestLogin@gmail.com");
+    setPassword("Guest@1234");
   };
 
   const handleSignup = async () => {
@@ -53,7 +53,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="h-[100vh] ">
+    <div className="bg-black/20 h-[80vh]">
        <div className="flex justify-center py-10 ">
       <div className=" card-border   w-80 bg-linear-to-b from-rose-500 to-pink-700 shadow-lg shadow-black rounded-lg">
         <div className="card-body  ">

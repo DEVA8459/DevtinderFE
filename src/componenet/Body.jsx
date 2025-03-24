@@ -5,6 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../store/userSlice";
+import Footer from "./footer/Footer";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Body = () => {
     <div className="bg-gradient-to-l from-rose-500 to-pink-700/70">
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 };

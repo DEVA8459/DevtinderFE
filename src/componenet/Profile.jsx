@@ -8,7 +8,7 @@ const Profile = () => {
   const data=user
   const [showEdit, setShowEdit] = useState(false);
   const [showtoast, setShowToast] = useState(false);
-  console.log("user", user);
+  
   return (
     <div>
        <div className="drawer-content flex items-center py-5 absolute  md:left-1/2 left-2/5  ">

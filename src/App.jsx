@@ -8,6 +8,10 @@ import Request from "./componenet/Request";
 import IngoreReject from "./componenet/IngoreReject";
 import Home from "./componenet/Home";
 import Chat from "./componenet/Chat";
+import PrivacyPolicy from "./componenet/footer/PrivacyPolicy";
+import RefundPolicy from "./componenet/footer/RefundPOlicy";
+import ContactUs from "./componenet/footer/ContactUs";
+import TermsAndConditions from "./componenet/footer/TermsOFConditions";
 
 function App() {
   return (
@@ -24,6 +28,10 @@ function App() {
 
             <Route path="/request" element={<Request />} />
             <Route path="/ignoreReject" element={<IngoreReject />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/refund" element={<RefundPolicy />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/termsandconditions" element={<TermsAndConditions />} />
           </Route>
         </Routes>
       </BrowserRouter>

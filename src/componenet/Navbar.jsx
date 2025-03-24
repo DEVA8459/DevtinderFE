@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { BASE_URL } from "../utils/constant";
+import { APP_NAME, BASE_URL } from "../utils/constant";
 import axios from "axios";
 import { removeUser } from "../store/userSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,13 +26,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar flex justify-between bg-gradient-to-l gap-8 from-rose-500 to-pink-700/70 shadow-md shadow-black px-4 md:px-6 lg:px-10">
+    <div className="navbar flex justify-between gap-8  shadow-md shadow-black px-4 md:px-6 lg:px-10">
       <div className="">
-        <Link to="/" className="flex items-center gap-5">
+        <Link to={user ? "/" : "/login"} className="flex items-center gap-5">
           <img src="pngwing.com.png" className="w-10 " />
-          <p className=" text-xl font-bold ">
-            DEVTINDER
-          </p>
+          <p className=" text-xl font-bold ">{APP_NAME}</p>
         </Link>
       </div>
 
@@ -65,7 +63,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3 w-48 p-2 bg-gradient-to-r from-rose-500/50 to-black/50 rounded-lg"
+              className="menu menu-sm dropdown-content  mt-3 w-48 p-2 bg-rose-600 rounded-lg"
             >
               <li>
                 <Link to="/profile">
@@ -84,16 +82,12 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/request">
-                  <p className="text-lg font-bold ">
-                    Pending Requests
-                  </p>
+                  <p className="text-lg font-bold ">Pending Requests</p>
                 </Link>
               </li>
               <li>
                 <Link to="/ignoreReject">
-                  <p className="text-lg font-bold ">
-                    Rejected & Ignored
-                  </p>
+                  <p className="text-lg font-bold ">Rejected & Ignored</p>
                 </Link>
               </li>
               <li onClick={handleLogout}>

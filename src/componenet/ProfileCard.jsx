@@ -7,11 +7,11 @@ const ProfileCard = ({ user, showtoast, setShowToast }) => {
   return (
     <div className=" flex justify-center items-center ">
       {data ? (
-        <div className=" shadow-xl shadow-black overflow-hidden w-full  lg:h-[100vh] md:flex md:items-center transition-all md:-mt-10  ">
+        <div className=" overflow-hidden w-full  lg:h-[100vh] md:flex md:items-center transition-all md:-mt-10  ">
           <div className="md:w-3/5 flex justify-center    ">
             <img
               src={user.photoUrl}
-              className=" max-w-105 max-h-[80vh] object-cover shadow-xl shadow-black m-4 border-4 border-gray-700 px-5  "
+              className=" max-w-105 max-h-[80vh]  shadow-xl shadow-black   border-gray-700 rounded-2xl  "
               alt="Profile"
             />
           </div>
@@ -20,7 +20,8 @@ const ProfileCard = ({ user, showtoast, setShowToast }) => {
             <h1 className="text-3xl font-bold ">
               {data.firstName} {data.lastName}
             </h1>
-            <p className="text-lg text-blue-800 font-bold">{data.about}</p>
+            <p className="text-lg text-green-400
+         font-bold">{data.about}</p>
 
             <div className="my-4 text-warning">
               <p>

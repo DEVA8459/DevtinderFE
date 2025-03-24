@@ -83,14 +83,14 @@ const Feed = () => {
       handleUser(id, "ignore");
     }
   };
-console.log(feedObj)
+
   return (
-    <div className="relative flex justify-center  bg-linear-to-b from-rose-500 to-pink-700 ">
-      <AnimatePresence >
+    <div className=" flex justify-center  ">
+      <AnimatePresence>
         {feedObj.length > 0 ? (
           <motion.div
             key={feedObj[currentIndex]?._id}
-            className=" border-2 border-rose-700 shadow-xl shadow-black absolute flex flex-col items-center justify-center bg-linear-65 from-rose-500 to-pink-700/70 rounded-lg  p-2 m-2 "
+            className=" border-3  shadow-2xl  rounded-2xl  shadow-black bg-base-300 flex flex-col items-center   p-2 m-5 "
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={(event, info) =>
@@ -106,17 +106,18 @@ console.log(feedObj)
               <button
                 className="btn btn-primary"
                 onClick={() => handleUser(feedObj[currentIndex]?._id, "ignore")}
-              ><MdSwipeLeft size={30} />
+              >
+                <MdSwipeLeft size={30} />
                 Ignore
               </button>
               <button
                 className="btn btn-secondary"
                 onClick={() =>
-                  handleUser(feedObj[currentIndex]?._id, "intrested") 
+                  handleUser(feedObj[currentIndex]?._id, "intrested")
                 }
               >
-                 Interested
-                 <MdSwipeRight size={30} />
+                Interested
+                <MdSwipeRight size={30} />
               </button>
             </div>
           </motion.div>

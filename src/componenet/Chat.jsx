@@ -20,7 +20,6 @@ const Chat = ({ Chat  }) => {
   const messageEndRef = useRef(null);
 
   const loggedinUserid = user?._id;
-  console.log(loggedinUserid);
   const targetedUserId = Chat._id
   
 
@@ -30,7 +29,7 @@ const Chat = ({ Chat  }) => {
         withCredentials: true,
       });
 
-      console.log(res.data.messages);
+     
 
       const chatMessages = res?.data?.messages.map((msg) => {
         const { senderId, text } = msg;
@@ -51,7 +50,7 @@ const Chat = ({ Chat  }) => {
     socket.emit("joinChat", { loggedinUserid, targetedUserId });
 
     socket.on("newMessageRecived", ({ firstName, text }) => {
-      console.log(firstName + ":" + text);
+     
       setMessages((messages) => [...messages, { firstName, text }]);
     });
     return () => socket.disconnect();

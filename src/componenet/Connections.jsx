@@ -63,7 +63,7 @@ const Connections = () => {
   };
 
   return (
-    <div className="flex p-3">
+    <div className="flex p-3 ">
       <div className=" flex-col  gap-4 w-2/5 md:w-2/5 h-[90vh] overflow-auto">
         {connection.map((con) => {
           const modalId = `modal_${con._id}`;
@@ -73,14 +73,14 @@ const Connections = () => {
               className="md:flex   md:p-3 m-2 md:m-4 bg-gradient-to-r from-rose-500 to-pink-700 rounded-xl md:py-2  sm:w-[60vh] shadow-xl shadow-black transition-transform transform hover:scale-105  relative z-10  "
             >
               <div
-                className={` md:flex flex-col gap-4 items-center justify-between p-2 w-[100%] cursor-pointer text-lg rounded-xl  font-bold ${
+                className={`flex-col gap-4 items-center justify-between p-2 w-[100%] cursor-pointer text-lg rounded-xl  font-bold ${
                   selectedChat?._id === con._id
                     ? "bg-pink-800"
                     : "hover:bg-rose-500"
                 }`}
-                onClick={()=>handleCLick(con)}
+                onClick={() => handleCLick(con)}
               >
-                <div className="md:flex  gap-3 items-center">
+                <div className="lg:flex  gap-3 items-center justify-between">
                   <img
                     src={con.photoUrl}
                     alt="profile"
@@ -90,12 +90,11 @@ const Connections = () => {
                   <p className="flex">
                     {con.firstName} {con.lastName}
                   </p>
-                </div>
-                <div>
                   <button onClick={() => handleRemove(con._id)}>
                     <MdOutlineDelete size={40} />
                   </button>
                 </div>
+                <div></div>
               </div>
 
               <div className="flex flex gap-3 mt-4">
