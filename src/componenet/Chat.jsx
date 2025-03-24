@@ -68,7 +68,7 @@ const Chat = ({ Chat  }) => {
     });
     setnewMessages("");
   };
-  console.log(messages);
+
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
